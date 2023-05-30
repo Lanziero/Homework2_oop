@@ -46,21 +46,17 @@ def get_shop_list_by_dishes(dishes, person_count):
     result = dict(res1)   
     pprint(result)
 
-
+# Проверка для суммирования ингридиентов
 get_shop_list_by_dishes(['Фахитос', 'Омлет'], 2)
 print()
 get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2)
 
 import os
-import glob
 
 file_path = os.getcwd()
 folder = 'task3'
 folder2 = 'Homework2_oop'
-files = glob.glob('task3/*.txt')
 full_path = os.path.join(file_path,folder)
-full_path4 = os.path.join(file_path,'res.txt')
- 
 full_path1 = os.path.join(file_path,folder,'1.txt')
 full_path2 = os.path.join(file_path,folder,'2.txt')
 full_path3 = os.path.join(file_path,folder,'3.txt')
@@ -72,7 +68,7 @@ with open (full_path1,encoding='utf-8') as input_file1,open (full_path2,encoding
     first1 = ''.join(first)
     second1 = ''.join(second)
     third1 = ''.join(third) 
-    if len(first) < len(second) < len(third):
+    if len(first) < len(second) and len(first) < len(third):
         output_file.writelines(f'1.txt\n{len(first)}\n{first1}\n')
         if len(second) < len(third):
             output_file.writelines(f'2.txt\n{len(second)}\n{second1}\n')
@@ -81,7 +77,7 @@ with open (full_path1,encoding='utf-8') as input_file1,open (full_path2,encoding
             output_file.writelines(f'3.txt\n{len(third)}\n{third1}\n')
             output_file.writelines(f'2.txt\n{len(second)}\n{second1}\n')
 
-    if len(second) < len(first) < len(third):
+    if len(second) < len(first) and len(second) < len(third):
         output_file.writelines(f'2.txt\n{len(second)}\n{second1}\n')
         if len(first) < len(third):
             output_file.writelines(f'1.txt\n{len(first)}\n{first1}\n')
@@ -90,7 +86,7 @@ with open (full_path1,encoding='utf-8') as input_file1,open (full_path2,encoding
             output_file.writelines(f'3.txt\n{len(third)}\n{third1}\n')
             output_file.writelines(f'1.txt\n{len(first)}\n{first1}\n')
 
-    if len(third) < len(first) < len(second):
+    if len(third) < len(first) and len(third) < len(second):
         output_file.writelines(f'3.txt\n{len(third)}\n{third1}\n')
         if len(first) < len(second):
             output_file.writelines(f'1.txt\n{len(first)}\n{first1}\n')
